@@ -32,23 +32,17 @@ int main(void)
 		// If sensor1 is being pulled down by something, set our blink time to it
 		if(sensor1 < 250)
 		{
-			setLED(1,1,0);
-			_delay_ms(blink_time*3);
 			blink_time = sensor1;
 		}
 		// If sensor2 is being pulled down by something, set our blink time to it
 		if(sensor2 < 250)
 		{
-			setLED(1,1,0);
-			_delay_ms(blink_time*3);
 			blink_time = sensor2;
 		}
 		// If sensor3 is being pulled down by something, set our blink time to it - note our preference is to sensor3 if multiple sensors are plugged in
 		if(sensor3 < 250)
 		{
 			blink_time = sensor3;
-			setLED(1,1,0);
-			_delay_ms(blink_time*3);
 		}
 		
 		if(blink_time != 255) {
