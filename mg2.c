@@ -33,7 +33,7 @@ unsigned int readChannel(uint8_t channel)
 	// Four lines:
 	// Set analog input to your channel - hint, use regular =, not | or &
 	ADMUX = (ADMUX & 0xC0) | (channel & 0x3f);
-    // start a conversion, 
+ 	// start a conversion, 
 	ADCSRA |= _BV(ADSC);
 	// wait for the conversion to complete, 
 	while(!(ADCSRA & _BV(ADIF)));
@@ -41,8 +41,6 @@ unsigned int readChannel(uint8_t channel)
 	// and then return the result
 	return ADCH;
 }
-
-
 
 
 /*  In the if-else statements here you should set the appropriate
