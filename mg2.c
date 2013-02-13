@@ -13,7 +13,6 @@
 #define BUTTON PB2
 #define READBUTTON PINB & _BV(PB2)
 #define SENSORPOWER PB0
-#define CLK125 0x6 //Prescaler select bits for 64 division factor
 
 void initADC()
 {
@@ -25,7 +24,7 @@ void initADC()
 	// Left adjust the result so that you can return 8-bit results easily
 	ADCSRB = _BV(ADLAR);
 	// Set the ADC prescalar to a division factor of 64 so that the ADC clock is 8 MHz/64 = 125 KHz
-	ADCSRA = _BV(ADEN) | _BV(CLK125);
+	ADCSRA = _BV(ADEN) | _BV(ADPS2) | _BV(ADPS1);
 }
 
 unsigned int readChannel(uint8_t channel)
